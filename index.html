@@ -3,13 +3,45 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width,initial-scale=1">
-   <title>Some New CSS</title>
-   <!-- An external CSS document -->
+   <title>Specificity</title>
+   <!-- An external CSS document. -->
    <link rel="stylesheet" href="css/style.css">
+
+   <!-- Another external CSS document, this time for fonts from Google. -->
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fascinate+Inline">
+
+   <!-- An internal/embedded CSS document -->
+   <style>
+/* 0, 0, 2 */
+div p {
+   background-color: #f9f9f9;
+}
+
+/* 0, 0, 1 */
+p {
+   background-color: #bada55;
+}
+
+/* 0, 1, 0 */
+.darth-vader {
+   background-color: #c0ffee;
+}
+
+/* 0, 1, 1 */
+p.darth-vader {
+   background-color: #dad15b;
+}
+
+/* 1, 0, 0 */
+#sith-lord {
+   background-color: #baddad;
+}
+   </style>
 </head>
 <body>
    <div id="container">
-      <p>Some new CSS.</p>
+      <p>Only <span class="darth-vader">Darth Vader</span>.</p>
+      <p id="sith-lord" class="darth-vader">Sith lord and Darth Vader.</p>
    </div>
 </body>
 </html>
